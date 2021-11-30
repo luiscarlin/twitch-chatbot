@@ -6,12 +6,10 @@
     "apps/*"
   ],
   "scripts": {
-    "chatbot": "dotenv -e .env yarn workspace @spike/chatbot",
+    "chatbot": "yarn workspace @spike/chatbot",
     "web": "yarn workspace @spike/web",
     "chatbot.start": "yarn chatbot start",
-    "web.start": "yarn web start"
-  },
-  "dependencies": {
-    "dotenv-cli": "^4.1.1"
+    "web.start": "yarn web start",
+    "start": "yarn workspaces foreach -ipv run start"
   }
 }
