@@ -1,8 +1,17 @@
 {
-  "name": "twitch-chatbot-spike",
+  "name": "spike",
   "packageManager": "yarn@3.1.1",
   "private": true,
   "workspaces": [
     "apps/*"
-  ]
+  ],
+  "scripts": {
+    "chatbot": "dotenv -e .env yarn workspace @spike/chatbot",
+    "web": "yarn workspace @spike/web",
+    "chatbot.start": "yarn chatbot start",
+    "web.start": "yarn web start"
+  },
+  "dependencies": {
+    "dotenv-cli": "^4.1.1"
+  }
 }
