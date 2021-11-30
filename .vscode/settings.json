@@ -1,5 +1,9 @@
 {
     "cSpell.words": [
-        "luiscarlin"
-    ]
+        "dotenv",
+        "luiscarlin",
+        "yarnpkg"
+    ],
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
 }

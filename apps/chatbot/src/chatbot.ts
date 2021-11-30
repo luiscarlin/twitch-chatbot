@@ -1,15 +1,13 @@
-import tmi from 'tmi.js'
+import tmi from 'tmi.js';
 
 // Define configuration options
 const opts = {
   identity: {
     username: process.env.TWITCH_BOT_USERNAME,
-    password: process.env.TWITCH_BOT_OAUTH_TOKEN
+    password: process.env.TWITCH_BOT_OAUTH_TOKEN,
   },
-  channels: [
-   process.env.TWITCH_BOT_USERNAME
-  ],
-  connection: {reconnect: true}
+  channels: [process.env.TWITCH_BOT_USERNAME],
+  connection: { reconnect: true },
 };
 
 // Create a client with our options
@@ -23,8 +21,10 @@ client.on('connected', onConnectedHandler);
 client.connect();
 
 // Called every time a message comes in
-function onMessageHandler (target, context, msg, self) {
-  if (self) { return; } // Ignore messages from the bot
+function onMessageHandler(target, context, msg, self) {
+  if (self || !msg.startsWith('!')) {
+    return;
+  } // Ignore messages from the bot
 
   // Remove whitespace from chat message
   const commandName = msg.trim();
@@ -40,12 +40,12 @@ function onMessageHandler (target, context, msg, self) {
 }
 
 // Function called when the "dice" command is issued
-function rollDice () {
+function rollDice() {
   const sides = 6;
   return Math.floor(Math.random() * sides) + 1;
 }
 
 // Called every time the bot connects to Twitch chat
-function onConnectedHandler (addr, port) {
+function onConnectedHandler(addr, port) {
   console.log(`* Connected to ${addr}:${port}`);
 }
