@@ -1,18 +1,8 @@
 {
-  "name": "twitch-chatbot",
-  "version": "1.0.0",
-  "main": "src/chatbot",
-  "license": "MIT",
-  "dependencies": {
-    "@types/dotenv": "^8.2.0",
-    "@types/node": "^16.11.9",
-    "@types/tmi.js": "^1.8.0",
-    "dotenv": "^10.0.0",
-    "tmi.js": "^1.8.5",
-    "ts-node": "^10.4.0",
-    "typescript": "^4.5.2"
-  },
-  "scripts": {
-    "start": "ts-node ."
-  }
+  "name": "twitch-chatbot-spike",
+  "packageManager": "yarn@3.1.1",
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ]
 }
