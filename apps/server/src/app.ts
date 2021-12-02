@@ -15,9 +15,8 @@ app.post('/join', async (req: Request, res: Response) => {
   const result = await chatbotClient.join(channel);
 
   if (result.length > 0) {
-    res.json({ channel: result });
+    res.json({ joined: result });
   }
-  res.sendStatus(500);
 });
 
 app.get('/channels', (req: Request, res: Response) => {
@@ -29,13 +28,9 @@ app.post('/part', async (req: Request, res: Response) => {
 
   const result = await chatbotClient.part(channel);
 
-  console.log(result);
-
   if (result.length > 0) {
-    res.json({ channel: result });
+    res.json({ left: result });
   }
-
-  res.sendStatus(200);
 });
 
 app.listen(port, function () {
