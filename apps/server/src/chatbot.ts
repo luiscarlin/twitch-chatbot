@@ -2,12 +2,13 @@ import tmi from 'tmi.js';
 
 // Define configuration options
 const opts = {
+  options: { debug: true },
   identity: {
     username: process.env.TWITCH_BOT_USERNAME,
     password: process.env.TWITCH_BOT_OAUTH_TOKEN,
   },
   channels: [process.env.TWITCH_BOT_USERNAME],
-  connection: { reconnect: true },
+  connection: { reconnect: true, secure: true },
 };
 
 // Create a client with our options
@@ -21,18 +22,19 @@ client.on('connected', onConnectedHandler);
 client.connect();
 
 // Called every time a message comes in
-function onMessageHandler(target, context, msg, self) {
-  if (self || !msg.startsWith('!')) {
+function onMessageHandler(channel: string, userState: any, message: string, self: any) {
+  if (self || !message.startsWith('!')) {
     return;
   } // Ignore messages from the bot
 
+  console.log('debug', userState);
   // Remove whitespace from chat message
-  const commandName = msg.trim();
+  const commandName = message.trim();
 
   // If the command is known, let's execute it
   if (commandName === '!dice') {
     const num = rollDice();
-    client.say(target, `You rolled a ${num}`);
+    client.say(channel, `You rolled a ${num}`);
     console.log(`* Executed ${commandName} command`);
   } else {
     console.log(`* Unknown command ${commandName}`);
@@ -46,6 +48,6 @@ function rollDice() {
 }
 
 // Called every time the bot connects to Twitch chat
-function onConnectedHandler(addr, port) {
+function onConnectedHandler(addr: any, port: any) {
   console.log(`* Connected to ${addr}:${port}`);
 }

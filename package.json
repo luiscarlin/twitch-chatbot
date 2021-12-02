@@ -8,8 +8,10 @@
   "scripts": {
     "chatbot": "yarn workspace @spike/chatbot",
     "web": "yarn workspace @spike/web",
+    "server": "yarn workspace @spike/server",
     "chatbot.start": "yarn chatbot start",
     "web.start": "yarn web start",
+    "server.start": "yarn server start",
     "start": "yarn workspaces foreach -ipv run start"
   }
 }
