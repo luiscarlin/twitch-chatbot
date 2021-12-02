@@ -9,7 +9,7 @@ const opts = {
   },
   channels: [process.env.TWITCH_BOT_USERNAME],
   connection: { reconnect: true, secure: true },
-};
+} as tmi.Options;
 
 // Create a client with our options
 const client = new tmi.client(opts);
