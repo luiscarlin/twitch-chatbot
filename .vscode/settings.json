@@ -1,10 +1,13 @@
 {
-    "cSpell.words": [
-        "dotenv",
-        "luiscarlin",
-        "yarnpkg"
-    ],
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true,
-    "files.autoSave": "onFocusChange"
+  "cSpell.words": [
+    "dotenv",
+    "luiscarlin",
+    "yarnpkg"
+  ],
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "files.autoSave": "onFocusChange",
+  "editor.codeActionsOnSave": {
+		"source.organizeImports": true
+	}
 }
